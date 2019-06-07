@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="696.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.me.locallib.controller.BookFormSceneController">
+   <children>
+      <VBox prefHeight="391.0" prefWidth="240.0" spacing="5.0">
+         <children>
+            <Pagination fx:id="imagesPagination" maxPageIndicatorCount="2" pageCount="2" prefHeight="252.0" prefWidth="230.0" />
+            <Button mnemonicParsing="false" onAction="#onActionSelectButton" text="Select" />
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="TOP_RIGHT" prefHeight="352.0" prefWidth="426.0" spacing="5.0" HBox.hgrow="ALWAYS">
+         <children>
+            <TabPane prefHeight="299.0" prefWidth="426.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Basic">
+                     <content>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="348.0" prefWidth="204.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Name" />
+                                    <TextField fx:id="nameTextField">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <Label text="Writer" />
+                                    <TextField fx:id="writerTextField">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <Label text="Translator" />
+                                    <TextField fx:id="translatorTextField">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <Label text="Publisher" />
+                                    <TextField fx:id="publisherTextField" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="20.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Original Name" />
+                                    <TextField fx:id="originalNameTextField" />
+                                    <Label text="Pages" />
+                                    <TextField fx:id="pagesTextField" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="230.0" spacing="20.0">
+                                       <children>
+                                          <CheckBox fx:id="readCheckBox" mnemonicParsing="false" text="Read" />
+                                          <CheckBox fx:id="inLibraryCheckBox" mnemonicParsing="false" text="in Library" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="20.0" right="10.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </content>
+                </Tab>
+                <Tab text="Purchase">
+                     <content>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="362.0" prefWidth="204.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Purchased From" />
+                                    <TextField fx:id="purchasedFromTextField">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <Label text="Packet" />
+                                    <TextField fx:id="packetTextField">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <Label text="Price" />
+                                    <TextField fx:id="priceTextField">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="20.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Purchased Date" />
+                                    <DatePicker fx:id="purchasedDateDatePicker">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </DatePicker>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="20.0" right="10.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </content>
+                </Tab>
+                  <Tab text="Extra">
+                     <content>
+                        <HBox prefHeight="319.0" prefWidth="426.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="204.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Series Name" />
+                                    <TextField fx:id="seriesNameTextField" />
+                                    <Label text="Series No" />
+                                    <TextField fx:id="seriesNoTextField" />
+                                    <Label text="Edition No" />
+                                    <TextField fx:id="editionNoTextField" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="20.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Description" />
+                                    <TextArea fx:id="descriptionTextArea" prefHeight="165.0" prefWidth="192.0" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="20.0" right="10.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <Button mnemonicParsing="false" onAction="#onActionSaveButton" text="Save">
+               <VBox.margin>
+                  <Insets right="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</HBox>

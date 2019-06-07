@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="1110.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.me.locallib.controller.MainSceneController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#onActionAddNewBookMenuItem" text="Add New Book" />
+                  <MenuItem mnemonicParsing="false" text="Add New Packet" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Settings">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#onActionSettingsMenuItem" text="Settings" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="About">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox prefHeight="616.0" prefWidth="390.0" spacing="5.0">
+               <children>
+                  <ToolBar prefHeight="40.0" prefWidth="352.0">
+                     <items>
+                        <TextField fx:id="searchTextField" onAction="#onActionSearchTextField" prefHeight="30.0" prefWidth="360.0" promptText="Search" />
+                     </items>
+                  </ToolBar>
+                  <Accordion>
+                    <panes>
+                      <TitledPane animated="false" text="Advanced">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </TitledPane>
+                    </panes>
+                  </Accordion>
+                  <Pagination fx:id="searchResultsPagination" maxPageIndicatorCount="5" pageCount="1" prefHeight="550.0" prefWidth="328.0" VBox.vgrow="NEVER" />
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+            <VBox fx:id="outerVBox2" prefHeight="200.0" prefWidth="100.0" spacing="5.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ToolBar prefHeight="40.0" prefWidth="200.0">
+                    <items>
+                      <Button mnemonicParsing="false" text="Back" />
+                        <Button mnemonicParsing="false" text="Forward" />
+                        <Button mnemonicParsing="false" text="Main Page" />
+                    </items>
+                  </ToolBar>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>
