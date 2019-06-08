@@ -7,13 +7,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.Pagination;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
@@ -46,17 +44,17 @@ public class MainSceneController implements Initializable{
 
     ////////////////////////////////////////////////////
 
-    public static final int booksPerPage = 4;
+    private static final int booksPerPage = 4;
 
-    List<Long> searchedResults;
+    private List<Long> searchedResults;
 
-    BookFormSceneController bookFormSceneController;
+    private BookFormSceneController bookFormSceneController;
 
     public void onActionSearchTextField(){
         searchedResults = searchEngine(searchTextField.getText());
 
         int pageCount = searchedResults.size() / booksPerPage;
-        if(searchedResults.size() % booksPerPage != 0) pageCount++;
+        if(pageCount == 0 || searchedResults.size() % booksPerPage != 0) pageCount++;
 
         searchResultsPagination.setPageCount(Integer.MAX_VALUE);
         searchResultsPagination.setPageCount(pageCount);
@@ -95,7 +93,7 @@ public class MainSceneController implements Initializable{
 
     }
 
-    public Node createBookShowcase(Book book){
+    private Node createBookShowcase(Book book){
         HBox outerHBox = new HBox(5);
 
         ImageView imageView = new ImageView(DataHandler.loadBookImage(book,0));
@@ -121,11 +119,23 @@ public class MainSceneController implements Initializable{
 
         HBox publisherHBox = new HBox();
         Text publisherText = new Text("publisher: ");
-        Label publisherLabel = new Label(book.translator);
+        Label publisherLabel = new Label(book.publisher);
         publisherLabel.setFont(Font.font("",FontWeight.BOLD,14));
         publisherHBox.getChildren().addAll(publisherText,publisherLabel);
 
-        textVBox.getChildren().addAll(nameLabel,writerHBox,translatorHBox,publisherHBox);
+        HBox checkBoxesHBox = new HBox(5);
+        CheckBox isRead = new CheckBox("Read");
+        isRead.setSelected(book.isRead);
+        isRead.setDisable(true);
+        isRead.setStyle("-fx-opacity: 1");
+        CheckBox isInLibrary = new CheckBox("In Library");
+        isInLibrary.setSelected(book.isInLibrary);
+        isInLibrary.setDisable(true);
+        isInLibrary.setStyle("-fx-opacity: 1");
+        checkBoxesHBox.getChildren().addAll(isRead,isInLibrary);
+
+
+        textVBox.getChildren().addAll(nameLabel,writerHBox,translatorHBox,publisherHBox,checkBoxesHBox);
 
         outerHBox.getChildren().addAll(imageView,textVBox);
 
@@ -137,7 +147,7 @@ public class MainSceneController implements Initializable{
         return outerHBox;
     }
 
-    public void onMouseClickedBookShowcase(MouseEvent event){
+    private void onMouseClickedBookShowcase(MouseEvent event){
         long bookId = Long.parseLong(((Node) event.getSource()).getId());
 
         showBookForm();
@@ -191,6 +201,7 @@ public class MainSceneController implements Initializable{
 
         searchResultsPagination.setPageFactory(param -> {
             ScrollPane scrollPane = new ScrollPane();
+            scrollPane.setPadding(new Insets(5,5,5,5));
             VBox contentVBox = new VBox(10);
 
             for (int i = param * booksPerPage; i < (param + 1) * booksPerPage && i <searchedResults.size(); i++) {
