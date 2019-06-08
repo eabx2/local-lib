@@ -2,7 +2,7 @@
 
 ### Project Definition
 
-This project is dedicated to provide a library management system which handles one's own local library. It basically provides three essential functionalities; adding a book into the libray, searching over the library and changing information of a book. It is written in JAVA and given graphical user interface with JavaFX library.
+This project is dedicated to provide a library management system which handles one's own local library. It basically provides three essential functionalities; adding a book into the library, searching over the library and changing information of a book. It is written in JAVA and given graphical user interface with JavaFX library.
 
 
 ### Using
